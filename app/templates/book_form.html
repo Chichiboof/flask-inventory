@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+
+    <div>
+        {{ form.title.label }}<br>
+        {{ form.title }}
+    </div>
+    <div>
+        {{ form.author.label }}<br>
+        {{ form.author }}
+    </div>
+    <div>
+        {{ form.isbn.label }}<br>
+        {{ form.isbn }}
+    </div>
+    <div>
+        {{ form.quantity.label }}<br>
+        {{ form.quantity }}
+    </div>
+    <div>
+        {{ form.price.label }}<br>
+        {{ form.price }}
+    </div>
+    <div>
+        {{ form.description.label }}<br>
+        {{ form.description }}
+    </div>
+    <div>
+        {{ form.category.label }}<br>
+        {{ form.category }}
+    </div>
+    <div>
+        {{ form.cover_image.label }}<br>
+        {{ form.cover_image }}
+    </div>
+    <div>
+        {{ form.submit }}
+    </div>
+</form>
+{% endblock %}

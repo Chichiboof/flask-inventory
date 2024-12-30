@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}List of Books{% endblock %}
+
+{% block content %}
+<h2>List of Books</h2>
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Cover</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td>
+                <a href="{{ url_for('routes.update_book', book_id=book.id) }}">Update</a>
+            </td>
+            
+            <td>{{ book.id }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.isbn }}</td>
+            <td>{{ book.quantity }}</td>
+            <td>${{ "%.2f"|format(book.price) }}</td>
+            <td>{{ book.category.name if book.category else "Uncategorized" }}</td>
+            <td>
+                {% if book.cover_image %}
+                <img src="{{ book.cover_image }}" alt="{{ book.title }}" style="width: 50px; height: auto;">
+                {% else %}
+                No Image
+                {% endif %}
+            </td>
+       
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

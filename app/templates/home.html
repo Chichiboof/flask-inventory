@@ -1,0 +1,19 @@
+# Step 7: HTML Templates
+# File: app/templates/home.html
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Bookstore</title>
+</head>
+<body>
+    <h1>Books</h1>
+    <ul>
+        {% for book in books %}
+        <li>{{ book.title }} by {{ book.author }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('routes.add_book') }}">Add Book</a>
+</body>
+</html>
